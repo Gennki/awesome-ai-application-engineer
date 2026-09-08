@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1450" width="100%" height="100%">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#757575"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#F8FAFC" />
+
+  <style>
+    .node-rect { fill: #FFFFFF; stroke: #1976D2; stroke-width: 2px; rx: 6px; ry: 6px; }
+    .node-diamond { fill: #FFF3E0; stroke: #F57C00; stroke-width: 2px; }
+    .node-circle { fill: #4CAF50; stroke: #388E3C; stroke-width: 2px; }
+    .node-text { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; font-size: 14px; fill: #333333; text-anchor: middle; dominant-baseline: middle; }
+    .node-text-light { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; font-size: 14px; fill: #FFFFFF; text-anchor: middle; dominant-baseline: middle; font-weight: bold; }
+    .edge { stroke: #757575; stroke-width: 2px; fill: none; marker-end: url(#arrow); }
+    .edge-label { font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif; font-size: 13px; fill: #D32F2F; font-weight: bold; }
+  </style>
+
+  <!-- ========== 连线 ========== -->
+  <!-- 1→2 -->
+  <path class="edge" d="M 400 70 L 400 100" />
+  <!-- 2→3 -->
+  <path class="edge" d="M 400 150 L 400 180" />
+  <!-- 3→4 -->
+  <path class="edge" d="M 400 230 L 400 260" />
+  <!-- 4→5 -->
+  <path class="edge" d="M 400 310 L 400 340" />
+  <!-- 5→6 -->
+  <path class="edge" d="M 400 390 L 400 420" />
+  <!-- 6→7 -->
+  <path class="edge" d="M 400 470 L 400 500" />
+  <!-- 7→8 -->
+  <path class="edge" d="M 400 550 L 400 580" />
+  <!-- 8→9 -->
+  <path class="edge" d="M 400 630 L 400 660" />
+  <!-- 9→10 -->
+  <path class="edge" d="M 400 710 L 400 740" />
+  <!-- 10→11（现在是info_chain） -->
+  <path class="edge" d="M 400 790 L 400 820" />
+  <!-- 11→12（现在是with_message_history） -->
+  <path class="edge" d="M 400 870 L 400 900" />
+  <!-- 12→13 -->
+  <path class="edge" d="M 400 950 L 400 980" />
+
+  <!-- 13→16 (True) -->
+  <path class="edge" d="M 400 1080 L 400 1270" />
+  <text x="415" y="1175" class="edge-label">True</text>
+
+  <!-- 13→14 (False) -->
+  <path class="edge" d="M 510 1030 L 600 1030 L 600 1110 L 400 1110" />
+  <text x="555" y="1025" class="edge-label">False</text>
+
+  <!-- 14→15 -->
+  <path class="edge" d="M 400 1160 L 400 1190" />
+
+  <!-- 15→9 (循环) -->
+  <path class="edge" d="M 260 1215 L 180 1215 L 180 685 L 260 685" />
+  <text x="165" y="965" class="edge-label">循环/补充输入</text>
+
+  <!-- 16→17 -->
+  <path class="edge" d="M 400 1320 L 400 1370" />
+
+  <!-- ========== 节点 ========== -->
+
+  <!-- 1. 开始 -->
+  <ellipse cx="400" cy="50" rx="60" ry="20" class="node-circle" filter="url(#shadow)" />
+  <text x="400" y="50" class="node-text-light">开始</text>
+
+  <!-- 2. 初始化大模型客户端（llm） -->
+  <rect x="260" y="100" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="125" class="node-text">
+    <tspan x="400" dy="-8">初始化大模型客户端</tspan>
+    <tspan x="400" dy="18">（llm）</tspan>
+  </text>
+
+  <!-- 3. 用户输入（user_input） -->
+  <rect x="260" y="180" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="205" class="node-text">
+    <tspan x="400" dy="-8">用户输入</tspan>
+    <tspan x="400" dy="18">（user_input）</tspan>
+  </text>
+
+  <!-- 4. 定义业务模板（templates） -->
+  <rect x="260" y="260" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="285" class="node-text">
+    <tspan x="400" dy="-8">定义业务模板</tspan>
+    <tspan x="400" dy="18">（templates）</tspan>
+  </text>
+
+  <!-- 5. 创建意图识别Prompt（intent_prompt） -->
+  <rect x="260" y="340" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="365" class="node-text">
+    <tspan x="400" dy="-8">创建意图识别Prompt</tspan>
+    <tspan x="400" dy="18">（intent_prompt）</tspan>
+  </text>
+
+  <!-- 6. 创建意图识别链（intent_chain） -->
+  <rect x="260" y="420" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="445" class="node-text">
+    <tspan x="400" dy="-8">创建意图识别链</tspan>
+    <tspan x="400" dy="18">（intent_chain）</tspan>
+  </text>
+
+  <!-- 7. 识别用户意图（intent） -->
+  <rect x="260" y="500" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="525" class="node-text">
+    <tspan x="400" dy="-8">识别用户意图</tspan>
+    <tspan x="400" dy="18">（intent）</tspan>
+  </text>
+
+  <!-- 8. 获取对应模板（selected_template） -->
+  <rect x="260" y="580" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="605" class="node-text">
+    <tspan x="400" dy="-8">获取对应模板</tspan>
+    <tspan x="400" dy="18">（selected_template）</tspan>
+  </text>
+
+  <!-- 9. 构造信息补全Prompt（info_prompt） -->
+  <rect x="260" y="660" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="685" class="node-text">
+    <tspan x="400" dy="-8">构造信息补全Prompt</tspan>
+    <tspan x="400" dy="18">（info_prompt）</tspan>
+  </text>
+
+  <!-- 10. 创建聊天Prompt（prompt） -->
+  <rect x="260" y="740" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="765" class="node-text">
+    <tspan x="400" dy="-8">创建聊天Prompt</tspan>
+    <tspan x="400" dy="18">（prompt）</tspan>
+  </text>
+
+  <!-- 11. 创建信息补全链（info_chain）【已交换】 -->
+  <rect x="260" y="820" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="845" class="node-text">
+    <tspan x="400" dy="-8">创建信息补全链</tspan>
+    <tspan x="400" dy="18">（info_chain）</tspan>
+  </text>
+
+  <!-- 12. 创建带历史记录的处理链（with_message_history）【已交换】 -->
+  <rect x="260" y="900" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="925" class="node-text">
+    <tspan x="400" dy="-8">创建带历史记录的处理链</tspan>
+    <tspan x="400" dy="18">（with_message_history）</tspan>
+  </text>
+
+  <!-- 13. 判断问题是否完整（json_data['isComplete']） -->
+  <polygon points="400,980 510,1030 400,1080 290,1030" class="node-diamond" filter="url(#shadow)" />
+  <text x="400" y="1030" class="node-text">
+    <tspan x="400" dy="-16">判断问题是否完整</tspan>
+    <tspan x="400" dy="18">（json_data</tspan>
+    <tspan x="400" dy="18">['isComplete']）</tspan>
+  </text>
+
+  <!-- 14. 显示引导信息，等待用户补充输入 -->
+  <rect x="250" y="1110" width="300" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="1135" class="node-text">
+    <tspan x="400" dy="-8">显示引导信息，</tspan>
+    <tspan x="400" dy="18">等待用户补充输入</tspan>
+  </text>
+
+  <!-- 15. 提交补充信息并更新json_data -->
+  <rect x="260" y="1190" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="1215" class="node-text">
+    <tspan x="400" dy="-8">提交补充信息</tspan>
+    <tspan x="400" dy="18">并更新json_data</tspan>
+  </text>
+
+  <!-- 16. 输出最终结果 -->
+  <rect x="260" y="1270" width="280" height="50" class="node-rect" filter="url(#shadow)" />
+  <text x="400" y="1295" class="node-text">输出最终结果</text>
+
+  <!-- 17. 结束 -->
+  <ellipse cx="400" cy="1370" rx="60" ry="20" class="node-circle" filter="url(#shadow)" />
+  <text x="400" y="1370" class="node-text-light">结束</text>
+
+</svg>
