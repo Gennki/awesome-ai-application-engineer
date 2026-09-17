@@ -17,11 +17,14 @@ def getModel(
         base_url=os.getenv("OPENAI_BASE_URL"),
         temperature: float | None = None,
         max_tokens: int | None = None,
+        model_provider: str = "openai",
         **kwargs
 
 ):
+    """通过 OpenAI 兼容接口创建模型，也支持显式指定其他 provider。"""
     return init_chat_model(
         model=model,
+        model_provider=model_provider,
         api_key=api_key,
         base_url=base_url,
         temperature=temperature,
