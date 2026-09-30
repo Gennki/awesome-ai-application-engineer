@@ -13,6 +13,8 @@
 5. [Agent 中间件：在模型调用前后插入规则](src/middleware/05_Agent中间件.md)：在 Agent 的模型调用前后加入日志、脱敏、摘要和拦截规则。
 6. [Advanced RAG：针对问题选择检索优化](src/advance_rag/06_Advanced%20RAG.md)：根据失败模式选择多路召回、混合检索、重排序和上下文压缩等优化方案。
 7. [RAG 评估：从指标到优化闭环](src/rag_evaluation/07_RAG评估.md)：使用 Ragas 分别评估检索与生成质量，并以固定评测集验证分块、混合检索、上下文压缩和重排序等优化效果。
+8. [LangGraph 导读：先把 Agent 看成一张会保存状态的流程图](src/agent/08_LangGraph导读.md)：从现有 demo 理解 State、Node、Edge、Checkpointer 和多轮会话记忆。
+9. [初识 Graph：理解 State、Node、Edge、Reducer 与条件边](src/agent/lang_graph/base/09_初识Graph：State、Node与Edge.md)：对照示例理解状态、节点、固定步骤、条件路由、多个 Schema，以及不同 reducer 的合并方式。
 
 ## 目录结构
 
@@ -23,6 +25,7 @@
 - `src/middleware/`：Agent 中间件示例
 - `src/advance_rag/`：Advanced RAG 检索优化示例
 - `src/rag_evaluation/`：使用 Ragas 评估 RAG 检索与生成质量的示例
+- `src/agent/`：LangGraph 状态图与 Agent 记忆示例
 
 ## 环境准备
 
